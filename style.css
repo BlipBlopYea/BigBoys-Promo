@@ -81,16 +81,13 @@ a:not(.brand):not(.button):not(.header-cta):hover {
   text-align: center;
 }
 
-.loader-mark {
-  display: grid;
-  width: 76px;
-  height: 76px;
-  place-items: center;
+.loader-logo {
+  display: block;
+  width: 96px;
+  height: 96px;
   border: 2px solid var(--yellow);
-  border-radius: 50%;
-  color: var(--yellow);
-  font: 800 28px/1 "Barlow Condensed", sans-serif;
-  letter-spacing: 2px;
+  border-radius: var(--radius-panel);
+  object-fit: cover;
 }
 
 .loader-name {
@@ -439,9 +436,10 @@ p {
 
 .mission-grid {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-column: 1 / -1;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
   gap: 14px;
-  margin-top: 32px;
+  margin-top: 0;
 }
 
 .mission-card {
@@ -473,6 +471,49 @@ p {
   line-height: 1.7;
 }
 
+.team-section {
+  grid-column: 1 / -1;
+  margin-top: 20px;
+}
+
+.team-heading {
+  margin-bottom: 16px;
+}
+
+.team-heading .section-kicker {
+  margin-bottom: 10px;
+}
+
+.team-heading h3 {
+  margin-bottom: 0;
+  font: 700 30px/1.2 "DM Sans", sans-serif;
+}
+
+.team-grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 14px;
+}
+
+.team-card {
+  padding: 24px;
+  border: 1px solid var(--line);
+  border-left: 3px solid var(--orange);
+  border-radius: var(--radius-panel);
+  background: var(--white);
+}
+
+.team-card h4 {
+  margin: 14px 0 6px;
+  font: 700 21px/1.2 "DM Sans", sans-serif;
+}
+
+.team-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 14px;
+}
+
 .services-section {
   background: #eeeee7;
 }
@@ -500,13 +541,14 @@ p {
 }
 
 .service-card {
-  position: relative;
   display: flex;
+  flex-direction: column;
   min-width: 0;
-  min-height: 280px;
-  align-items: center;
-  gap: 20px;
-  padding: 24px;
+  min-height: 0;
+  align-items: stretch;
+  gap: 0;
+  overflow: hidden;
+  padding: 0;
   border: 1px solid var(--line);
   border-radius: var(--radius-panel);
   background: var(--white);
@@ -530,15 +572,17 @@ p {
 }
 
 .service-index {
-  position: absolute;
-  top: 32px;
-  right: 32px;
+  display: block;
+  margin-bottom: 10px;
 }
 
 .service-preview {
   display: block;
-  width: 40%;
-  flex: 0 0 40%;
+  width: 100%;
+  height: 270px;
+  flex: 0 0 270px;
+  overflow: hidden;
+  background: var(--forest-dark);
   transition: transform .2s ease;
 }
 
@@ -549,10 +593,9 @@ p {
 .service-image {
   display: block;
   width: 100%;
-  max-height: 230px;
-  height: auto;
-  border-radius: 5px;
-  object-fit: contain;
+  height: 100%;
+  object-fit: cover;
+  object-position: center 40%;
   transition: transform .25s ease;
 }
 
@@ -563,8 +606,9 @@ p {
 .service-copy {
   display: flex;
   min-width: 0;
-  flex: 1;
   flex-direction: column;
+  flex: 1;
+  padding: 22px 24px 24px;
 }
 
 .service-card h3 {
@@ -573,44 +617,14 @@ p {
 }
 
 .service-card p {
-  margin-bottom: 24px;
+  margin-bottom: 0;
   color: var(--muted);
   font-size: 16px;
   line-height: 1.75;
 }
 
-.service-card .service-link {
-  align-self: flex-start;
-  margin-top: auto;
-  padding-top: 12px;
-}
-
 .service-card-featured p {
   color: rgba(255, 255, 255, .68);
-}
-
-.service-link {
-  display: inline-flex;
-  align-items: center;
-  gap: 11px;
-  color: var(--orange);
-  font-size: 15px;
-  font-weight: 800;
-  transition: color .2s ease, transform .2s ease;
-}
-
-.service-link:hover {
-  transform: translateY(-2px);
-  text-decoration: underline;
-  text-underline-offset: 4px;
-}
-
-.service-link span {
-  font-size: 15px;
-}
-
-.service-card-featured .service-link {
-  color: var(--yellow);
 }
 
 .listings-cta {
@@ -629,6 +643,16 @@ p {
   margin: 0;
   font-size: 17px;
   font-weight: 600;
+}
+
+.listings-cta .prototype-cta {
+  min-height: 64px;
+  padding-inline: 30px;
+  font-size: 18px;
+}
+
+.prototype-cta span {
+  font-size: 25px;
 }
 
 .button-light {
@@ -889,6 +913,15 @@ button:focus-visible {
     gap: 45px;
   }
 
+  .mission-grid,
+  .team-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  .service-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
   .section,
   .contact-section {
     padding-inline: 7vw;
@@ -982,24 +1015,19 @@ button:focus-visible {
   }
 
   .service-card {
-    min-height: 230px;
-    gap: 12px;
-    padding: 16px;
+    min-height: 0;
+    gap: 0;
+    padding: 0;
     scroll-snap-align: start;
   }
 
-  .service-index {
-    top: 22px;
-    right: 22px;
-  }
-
   .service-preview {
-    width: 36%;
-    flex-basis: 36%;
+    height: 230px;
+    flex-basis: 230px;
   }
 
-  .service-image {
-    max-height: 205px;
+  .service-copy {
+    padding: 16px;
   }
 }
 
@@ -1065,11 +1093,37 @@ button:focus-visible {
 
   .mission-grid {
     gap: 10px;
-    margin-top: 20px;
   }
 
   .mission-card {
     padding: 16px;
+  }
+
+  .team-section {
+    margin-top: 0;
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 8px;
+  }
+
+  .team-card {
+    padding: 10px 8px;
+  }
+
+  .team-card h4 {
+    margin: 8px 0 0;
+    font-size: clamp(12px, 3.4vw, 16px);
+    overflow-wrap: anywhere;
+  }
+
+  .team-card p {
+    display: none;
+  }
+
+  .team-card .card-number {
+    font-size: 9px;
   }
 
   .mission-card h3 {
@@ -1104,11 +1158,7 @@ button:focus-visible {
   }
 
   .service-card p {
-    margin-bottom: 10px;
-    font-size: 13px;
-  }
-
-  .service-link {
+    margin-bottom: 0;
     font-size: 13px;
   }
 
@@ -1129,6 +1179,12 @@ button:focus-visible {
     flex: 0 0 auto;
     padding-inline: 13px;
     font-size: 14px;
+  }
+
+  .listings-cta .prototype-cta {
+    min-height: 54px;
+    padding-inline: 20px;
+    font-size: 16px;
   }
 
   .video-section .section-heading {
@@ -1204,6 +1260,15 @@ button:focus-visible {
 
   .mission-grid {
     grid-template-columns: minmax(0, 1fr);
+  }
+
+  .team-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 6px;
+  }
+
+  .team-card {
+    padding: 8px 6px;
   }
 
   .form-field {
@@ -1322,6 +1387,12 @@ button:focus-visible {
     min-height: 42px;
     padding-inline: 10px;
     font-size: 12px;
+  }
+
+  .listings-cta .prototype-cta {
+    min-height: 50px;
+    padding-inline: 16px;
+    font-size: 15px;
   }
 
   .form-field input,
