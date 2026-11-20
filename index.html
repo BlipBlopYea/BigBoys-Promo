@@ -12,20 +12,18 @@
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="page-loader" id="page-loader" aria-hidden="true">
-    <div class="loader-brand">
-      <img class="loader-logo" src="assets/BigBoys.jpg" alt="Big Boys Rental">
-      <span class="loader-name">Big Boys</span>
-      <span class="loader-caption">Equipment Rentals</span>
-      <span class="loader-indicator"></span>
-    </div>
-  </div>
 
+
+
+  <!-- ============================================================================
+       === 01. HEADER & NAVIGATION ==============================================
+       ============================================================================ -->
   <header class="site-header">
     <a class="brand" href="#home" aria-label="Big Boys Rental home">
       <img class="brand-logo" src="assets/BigBoys.jpg" alt="Big Boys Rental logo">
       <span class="brand-name">Big Boys Rental<span>Equipment Rentals</span></span>
     </a>
+    <!-- Mobile navigation toggle controls the menu below. -->
     <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="main-nav" aria-label="Open navigation menu">
       <span></span>
       <span></span>
@@ -42,20 +40,30 @@
   </header>
 
   <main>
+
+
+
+    <!-- ============================================================================
+         === 02. HERO SECTION ===================================================
+         ============================================================================ -->
     <section class="hero" id="home" aria-labelledby="hero-title">
       <div class="hero-content">
-        <p class="eyebrow"><span class="eyebrow-line"></span> Heavy equipment for real jobs</p>
         <h1 id="hero-title">The real solution<br>of real men,<br><span>BIGBOYS Rental</span></h1>
+        <p class="eyebrow hero-note"><span class="status-dot" aria-hidden="true"></span> Heavy equipment for real jobs</p>
         <p class="hero-intro">Find heavy equipment for your next project.</p>
         <a class="button button-primary" href="https://blipblopyea.github.io/BigBoys/" target="_blank" rel="noopener noreferrer">Rent Now <span aria-hidden="true">→</span></a>
-        <p class="hero-note"><span class="status-dot" aria-hidden="true"></span> Straightforward and fast rentals.</p>
       </div>
       <div class="hero-art">
-        <img src="assets/heroimage.jpg" alt="Equipment operator working on a construction site">
+        <img src="assets/heroimage.jpg" alt="Equipment operator working on a construction site" fetchpriority="high">
       </div>
-      <a class="hero-scroll" href="#about"><span aria-hidden="true">↓</span> Scroll to explore</a>
+      <a class="hero-scroll" href="#about" aria-label="Jump to About Us"><span aria-hidden="true"></span></a>
     </section>
 
+
+
+    <!-- ============================================================================
+         === 03. ABOUT, MISSION & TEAM ==========================================
+         ============================================================================ -->
     <section class="section about-section" id="about" aria-labelledby="about-title">
       <div class="section-heading">
         <p class="section-kicker">Who we are</p>
@@ -107,6 +115,34 @@
       </div>
     </section>
 
+    <section class="problem-section" id="problem" aria-labelledby="problem-title">
+      <div class="problem-intro">
+        <p class="problem-label">THE PROBLEM</p>
+        <div class="problem-copy">
+          <h2 id="problem-title">Renting Heavy Gear Locally Is Still a Hassle</h2>
+          <p>Buying machines is too expensive for smaller jobs, and finding an available unit nearby usually takes too much back-and-forth.</p>
+        </div>
+      </div>
+      <div class="problem-layout">
+        <ul class="problem-list">
+          <li><strong>High upfront cost:</strong> Buying excavators, backhoes, or dump trucks takes way too much capital for smaller contractors and builds.</li>
+          <li><strong>Short-term project needs:</strong> Half the time, a job only needs a unit for a few days—not a permanent purchase.</li>
+          <li><strong>Scattered Facebook listings:</strong> Local units are posted across different FB pages and groups, so checking who is actually free takes digging and messaging around.</li>
+          <li><strong>Unclear rates and mobilization:</strong> Prices, hourly/daily terms, and distance-based mobilization fees often aren't clear until you DM back and forth.</li>
+          <li><strong>Idle units on the owner side:</strong> Equipment owners lose out when machines sit parked with no steady booking flow.</li>
+        </ul>
+        <figure class="problem-quote">
+          <blockquote>"Mini backhoe / dump truck for rent, rate depends on distance and mobilization—PM for availability."</blockquote>
+          <figcaption>Common local Facebook post &amp; inquiry pattern (excavators, backhoes, dump trucks)</figcaption>
+        </figure>
+      </div>
+    </section>
+
+
+
+    <!-- ============================================================================
+         === 04. PROTOTYPE SHOWCASE =============================================
+         ============================================================================ -->
     <section class="section services-section" id="services" aria-labelledby="services-title">
       <div class="section-heading section-heading-row">
         <div>
@@ -153,6 +189,11 @@
       </div>
     </section>
 
+
+
+    <!-- ============================================================================
+         === 05. PROMO VIDEO ====================================================
+         ============================================================================ -->
     <section class="section video-section" id="video" aria-labelledby="video-title">
       <div class="section-heading">
         <p class="section-kicker">See us in action</p>
@@ -160,7 +201,8 @@
       </div>
       <div class="video-grid">
         <div class="video-panel">
-          <video controls controlslist="nodownload" preload="metadata" playsinline aria-label="Big Boys Rental promotional video">
+          <!-- Native controls keep video playback accessible to keyboard and touch users. -->
+          <video controls controlslist="nodownload" preload="metadata" playsinline poster="assets/heroimage.jpg" aria-label="Big Boys Rental promotional video">
             <source src="assets/BIGBOYSPromovid.mp4" type="video/mp4">
             Sorry, your browser can't play this video.
           </video>
@@ -168,6 +210,11 @@
       </div>
     </section>
 
+
+
+    <!-- ============================================================================
+         === 06. CONTACT & INQUIRY FORM =========================================
+         ============================================================================ -->
     <section class="contact-section" id="contact" aria-labelledby="contact-title">
       <div class="contact-inner">
         <div class="contact-copy">
@@ -227,6 +274,11 @@
     </section>
   </main>
 
+
+
+  <!-- ============================================================================
+       === 07. FOOTER ===========================================================
+       ============================================================================ -->
   <footer class="site-footer">
     <a class="brand footer-brand" href="#home" aria-label="Big Boys Rental home">
       <img class="brand-logo" src="assets/BigBoys.jpg" alt="">
@@ -236,11 +288,13 @@
     <a href="mailto:bigboysrental.ph@gmail.com">bigboysrental.ph@gmail.com</a>
     <span class="copyright">© 2026 Big Boys Rental</span>
   </footer>
-  <script>
-    window.setTimeout(() => {
-      document.getElementById("page-loader").classList.add("is-hidden");
-    }, 500);
 
+
+
+  <!-- ============================================================================
+       === 08. SCRIPTS ==========================================================
+       ============================================================================ -->
+  <script>
     const menuButton = document.querySelector(".nav-toggle");
     const mainNav = document.getElementById("main-nav");
 
